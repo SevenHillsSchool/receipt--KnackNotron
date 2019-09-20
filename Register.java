@@ -6,7 +6,7 @@
 * adding the following elements to your code.
 * 
 *   1. Leave this comment header block in place, but replace elements of name, date and
-*         project name with your own (remmber you cannot change file or class name.
+*         project name with your own (remember you cannot change file or class name.
 *   2. Imagine the following scenario and design your software to complete the following:
 *        a. Using the concole window (AKA terminal screen) design a POS (Point of Sale System) printer
 *        b. You are to generate a printed receipt for a Point of sale system, that includes:
@@ -24,17 +24,65 @@
 * That's a good start.
 */
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
 public class Register {
 
 //this could be the interactions for the user, that may include login, custom message, etc.
 // a menu system may call upon the transaction 'window' or screen
 // then you could call up a receipt printer function.
+  public Register() {
+  
+  }
 
-public static void main (String[] args) {
+  public static void topOTheMornin() {
+    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    Date date = new Date();
+    System.out.print("Arrrr, today be ");
+    System.out.println(formatter.format(date));
+    System.out.println("Welcome!");
+    System.out.println("What do you want?\n");
+  } //close topOTheMornin()
 
+  public static void desireToPurchase() {
+    boolean purchaseDecision = false;
+    System.out.println("Do you wish to make a purchase?");
+    Scanner scan = new Scanner(System.in);
+    do {
+      String scanRes = scan.next();
+      if (scanRes.equals("y") || scanRes.equals("Y")) {
+        boolean purchaseBool = true;
+        System.out.println("You wish to purchase!");
+        purchasePrompt();
+        purchaseDecision = true;
+      } else if (scanRes.equals("n") || scanRes.equals("N")) {
+        boolean purchaseBool = false;
+        System.out.println("No wish to purchase");
+        purchaseDecision = true;
+      } else {
+        System.out.println("Dude it's a [y]es or [n]o question");
+        purchaseDecision = false;
+      }
+    } while (purchaseDecision == false);
+  } //close desireToPurchase()
+
+  public static void purchasePrompt() {
+    System.out.println("What do you wish to buy? We have:");
+    for (InventoryItem item : inventory) {
+      System.out.println(item.getName());
+    }
+  } //close purchasePrompt()
+
+  public static void main (String[] args) {
+    InventoryItem burger = new InventoryItem("Burger", 12);
+    InventoryItem fries = new InventoryItem("French Fries", 15);
+    InventoryItem orange = new InventoryItem("Orange", 6);
+    InventoryItem[] inventory = {burger, fries, orange};
     //main menu system
     // how will you call upon or implement other classes?
     
-    }  //close main method
+  }  //close main method
 
 }  // close the class

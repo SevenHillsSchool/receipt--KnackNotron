@@ -20,3 +20,33 @@
 * Have fun with the assignment!!       *
 ****************************************
 */
+
+public class ReceiptPrinter {
+  
+  public static void printReceipt() {
+    System.out.println(" ---------------------------------------");
+    //System.out.printf("|%s                                |\n", "Name: ");
+    //System.out.printf("|%s                                |\n", "Date: ");
+    System.out.printf("|%s\t\t\t\t\t\t\t\t\t|\n", "Name: ");
+    System.out.printf("|%s\t\t\t\t\t\t\t\t\t|\n", "Date: ");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.println(" ---------------------------------------");
+  }
+
+  public static void main(String[] args) {
+    
+  }
+}
