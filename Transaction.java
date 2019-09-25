@@ -48,41 +48,41 @@ public class Transaction {
       System.out.println();
       String scanRes = scan.next();
       if (scanRes.equals("B") || scanRes.equals("b")) {
-        int aLen = cart.length;
-        InventoryItem[] result = new InventoryItem[cart.length + 1];
-        System.arraycopy(cart, 0, result, 0, aLen);
-        System.arraycopy(inventory, 0, result, aLen, 1);
+        // int aLen = cart.length;
+        // InventoryItem[] result = new InventoryItem[cart.length + 1];
+        // System.arraycopy(cart, 0, result, 0, aLen);
+        // System.arraycopy(inventory, 0, result, aLen, 1);
 
-        System.out.println("Your cart currently has: ");
-        for (InventoryItem item : result) {
-          System.out.println(item.getName());
-        }
+        // System.out.println("Your cart currently has: ");
+        // for (InventoryItem item : result) {
+        //   System.out.println(item.getName());
+        // }
 
         purchasing = keepShopping();
       } else if (scanRes.equals("F")|| scanRes.equals("f")) {
-        int aLen = cart.length;
-        InventoryItem[] result = new InventoryItem[cart.length + 1];
-        System.arraycopy(cart, 0, result, 0, aLen);
-        System.arraycopy(inventory, 1, result, aLen, 1);
-        System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
-
-        System.out.println("Your cart currently has: ");
-        for (InventoryItem item : result) {
-          System.out.println(item.getName());
-        }
+        // int aLen = cart.length;
+        // InventoryItem[] result = new InventoryItem[cart.length + 1];
+        // System.arraycopy(cart, 0, result, 0, aLen);
+        // System.arraycopy(inventory, 1, result, aLen, 1);
+        // System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
+        //
+        // System.out.println("Your cart currently has: ");
+        // for (InventoryItem item : result) {
+        //   System.out.println(item.getName());
+        // }
 
         purchasing = keepShopping();
       } else if (scanRes.equals("O") || scanRes.equals("o")) {
-        int aLen = cart.length;
-        InventoryItem[] result = new InventoryItem[cart.length + 1];
-        System.arraycopy(cart, 0, result, 0, aLen);
-        System.arraycopy(inventory, 2, result, aLen, 1);
-        System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
-
-        System.out.println("Your cart currently has: ");
-        for (InventoryItem item : result) {
-          System.out.println(item.getName());
-        }
+        // int aLen = cart.length;
+        // InventoryItem[] result = new InventoryItem[cart.length + 1];
+        // System.arraycopy(cart, 0, result, 0, aLen);
+        // System.arraycopy(inventory, 2, result, aLen, 1);
+        // System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
+        //
+        // System.out.println("Your cart currently has: ");
+        // for (InventoryItem item : result) {
+        //   System.out.println(item.getName());
+        // }
 
         purchasing = keepShopping();
       } else {
@@ -92,9 +92,6 @@ public class Transaction {
     } while (purchasing == true);
   }
 
-  public static void cartMaker() {
-
-  }
 
   public static boolean keepShopping() {
     System.out.println("\nWould you like to keep shopping?");
