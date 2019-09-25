@@ -1,9 +1,8 @@
-class Main {
+public class Main {
   public static void main(String[] args) {
     Register regOne = new Register();
     regOne.topOTheMornin();
-    regOne.main();
-    regOne.desireToPurchase();
+    //regOne.desireToPurchase();
     //ReceiptPrinter.printReceipt();
   }
 }

@@ -1,10 +1,10 @@
-/* This is a java file 'stub' or piece of a file designed to get you started on 
+/* This is a java file 'stub' or piece of a file designed to get you started on
 * learning to code in java, while at the same time, exploring a little more about
 * collaboration, version control and multiple file scenarios.
 *
 *For this assignment, I would like you to fork, modify and commit this file, while
 * adding the following elements to your code.
-* 
+*
 *   1. Leave this comment header block in place, but replace elements of name, date and
 *         project name with your own (remember you cannot change file or class name.
 *   2. Imagine the following scenario and design your software to complete the following:
@@ -14,7 +14,7 @@
 *             ii.  ASCII simple art for a box around name of Store, location, date of transaction
 *             iii. line for cashier user account logged in
 *             iv.  transaction details for at least three items purchases in POS recent memory
-*             v.   lines for subtotals, tax, and total amound due as well as tender type and 
+*             v.   lines for subtotals, tax, and total amound due as well as tender type and
 *             vi.  where necessary, change due or a mock credit card number (last 4 digits and expiry date
 *       c. Menu system for your POS (Point of Sale) operation could include more static elements like:
 *             i.   Variation of tax amount
@@ -34,16 +34,16 @@ public class Register {
 // a menu system may call upon the transaction 'window' or screen
 // then you could call up a receipt printer function.
   public Register() {
-  
+
   }
 
   public static void topOTheMornin() {
     SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     Date date = new Date();
-    System.out.print("Arrrr, today be ");
+    System.out.print("\nArrrr, today be ");
     System.out.println(formatter.format(date));
     System.out.println("Welcome!");
-    System.out.println("What do you want?\n");
+    desireToPurchase();
   } //close topOTheMornin()
 
   public static void desireToPurchase() {
@@ -55,7 +55,8 @@ public class Register {
       if (scanRes.equals("y") || scanRes.equals("Y")) {
         boolean purchaseBool = true;
         System.out.println("You wish to purchase!");
-        purchasePrompt();
+        Transaction t1 = new Transaction();
+        t1.buyStuff();
         purchaseDecision = true;
       } else if (scanRes.equals("n") || scanRes.equals("N")) {
         boolean purchaseBool = false;
@@ -68,21 +69,7 @@ public class Register {
     } while (purchaseDecision == false);
   } //close desireToPurchase()
 
-  public static void purchasePrompt() {
-    System.out.println("What do you wish to buy? We have:");
-    for (InventoryItem item : inventory) {
-      System.out.println(item.getName());
-    }
-  } //close purchasePrompt()
-
-  public static void main (String[] args) {
-    InventoryItem burger = new InventoryItem("Burger", 12);
-    InventoryItem fries = new InventoryItem("French Fries", 15);
-    InventoryItem orange = new InventoryItem("Orange", 6);
-    InventoryItem[] inventory = {burger, fries, orange};
     //main menu system
     // how will you call upon or implement other classes?
-    
-  }  //close main method
 
 }  // close the class
