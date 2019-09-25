@@ -1,7 +1,10 @@
 public class Main {
+  public static Register regOne = new Register();
+  public static Transaction t1 = new Transaction();
+
   public static void main(String[] args) {
-    Register regOne = new Register();
     regOne.topOTheMornin();
+    regOne.desireToPurchase();
     //regOne.desireToPurchase();
     //ReceiptPrinter.printReceipt();
   }

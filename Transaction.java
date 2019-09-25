@@ -6,19 +6,18 @@ public class Transaction {
   public static InventoryItem fries = new InventoryItem("French Fries", 15, 1.50);
   public static InventoryItem orange = new InventoryItem("Orange", 6, 1.00);
   public static InventoryItem[] inventory = {burger, fries, orange};
-  public static InventoryItem[] cart = new InventoryItem[0];
-  public static InventoryItem[] finalCart = new InventoryItem[0];
 
 
   // constructor:
   public Transaction() {
-    InventoryItem[] purchasedItems;
-    int[] itemQuantity;
+    InventoryItem[] purchasedItems = new InventoryItem[3];
+    int[] itemQuantity = new int[3];
     double totalPrice;
     String purchaser;
+    int purchaseTracker = 0;
   } //close constructor
 
-// method to do a certain time delay
+  // method to do a certain time delay
   public void timeDelay(int duration) {
     try {
       Thread.sleep(duration);
@@ -27,20 +26,39 @@ public class Transaction {
     }
   } //close timeDelay()
 
-  //
-  // public static void purchasePrompt() {
-  //   InventoryItem burger = new InventoryItem("Burger", 12, 6.00);
-  //   InventoryItem fries = new InventoryItem("French Fries", 15, 1.50);
-  //   InventoryItem orange = new InventoryItem("Orange", 6, 1.00);
-  //   InventoryItem[] inventory = {burger, fries, orange};
-  //   buyStuff();
-  // } //close purchasePrompt()
+  // transaction getters and setters:
+  public InventoryItem[] getPurchasedItems() {
+    return purchasedItems;
+  }
+  public void setPurchasedItems(InventoryItem newPurchase) {
+    purchasedItems[purchaseTracker-1] = newPurchase;
+  }
+  public int[] getItemQuantity() {
+    return itemQuantity;
+  }
+  public void setItemQuantity(int newItemQuantity) {
+    itemQuantity[purchaseTracker-1] = newItemQuantity;
+  }
+  public double getTotalPrice() {
+    return totalPrice;
+  }
+  public void setTotalPrice(double newTotalPrice) {
+    totalPrice = newTotalPrice;
+  }
+  public int getPurchaseTracker() {
+    return purchaseTracker;
+  }
+  public void setPurchaseTracker(int newPurchaseTracker) {
+    purchaseTracker = newPurchaseTracker;
+  }
+
 
   public static void buyStuff() {
     System.out.println();
     Scanner scan = new Scanner(System.in);
     boolean purchasing = true;
     do {
+      t1.setPurchaseTracker(t1.getPurchaseTracker()+1);
       System.out.println("\nWhat do you wish to buy? We have:");
       for (InventoryItem item : inventory) {
         System.out.println(item.getName());
@@ -48,41 +66,27 @@ public class Transaction {
       System.out.println();
       String scanRes = scan.next();
       if (scanRes.equals("B") || scanRes.equals("b")) {
-        // int aLen = cart.length;
-        // InventoryItem[] result = new InventoryItem[cart.length + 1];
-        // System.arraycopy(cart, 0, result, 0, aLen);
-        // System.arraycopy(inventory, 0, result, aLen, 1);
-
-        // System.out.println("Your cart currently has: ");
-        // for (InventoryItem item : result) {
-        //   System.out.println(item.getName());
-        // }
+        purchasedItems[purchaseTracker-1] = burger;
+        System.out.println("How many would you like to buy? We have "
+          + burger.getStock() + " available.");
+        int purchaseQuantity = scan.nextInt();
+        t1.setItemQuantity(purchaseQuantity);
 
         purchasing = keepShopping();
       } else if (scanRes.equals("F")|| scanRes.equals("f")) {
-        // int aLen = cart.length;
-        // InventoryItem[] result = new InventoryItem[cart.length + 1];
-        // System.arraycopy(cart, 0, result, 0, aLen);
-        // System.arraycopy(inventory, 1, result, aLen, 1);
-        // System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
-        //
-        // System.out.println("Your cart currently has: ");
-        // for (InventoryItem item : result) {
-        //   System.out.println(item.getName());
-        // }
+        purchasedItems[purchaseTracker-1] = fries;
+        System.out.println("How many would you like to buy? We have "
+          + fries.getStock() + " available.");
+        int purchaseQuantity = scan.nextInt();
+        t1.setItemQuantity(purchaseQuantity);
 
         purchasing = keepShopping();
       } else if (scanRes.equals("O") || scanRes.equals("o")) {
-        // int aLen = cart.length;
-        // InventoryItem[] result = new InventoryItem[cart.length + 1];
-        // System.arraycopy(cart, 0, result, 0, aLen);
-        // System.arraycopy(inventory, 2, result, aLen, 1);
-        // System.arraycopy(result, 0, finalCart, finalCart.length, result.length);
-        //
-        // System.out.println("Your cart currently has: ");
-        // for (InventoryItem item : result) {
-        //   System.out.println(item.getName());
-        // }
+        purchasedItems[purchaseTracker-1] = orange;
+        System.out.println("How many would you like to buy? We have "
+          + orange.getStock() + " available.");
+        int purchaseQuantity = scan.nextInt();
+        t1.setItemQuantity(purchaseQuantity);
 
         purchasing = keepShopping();
       } else {
@@ -108,7 +112,7 @@ public class Transaction {
   }
 
   public static void calculatePrice(InventoryItem[] purchaseItems) {
-    // for (InventoryItem item : cart) {
+    // for (InventoryItem item : purchasedItems) {
     //   System.out.println(item.getName());
     // }
   } //close calculatePrice()

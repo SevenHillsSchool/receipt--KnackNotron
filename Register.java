@@ -43,7 +43,6 @@ public class Register {
     System.out.print("\nArrrr, today be ");
     System.out.println(formatter.format(date));
     System.out.println("Welcome!");
-    desireToPurchase();
   } //close topOTheMornin()
 
   public static void desireToPurchase() {
@@ -55,7 +54,6 @@ public class Register {
       if (scanRes.equals("y") || scanRes.equals("Y")) {
         boolean purchaseBool = true;
         System.out.println("You wish to purchase!");
-        Transaction t1 = new Transaction();
         t1.buyStuff();
         purchaseDecision = true;
       } else if (scanRes.equals("n") || scanRes.equals("N")) {
