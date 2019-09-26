@@ -50,7 +50,12 @@ public class Transaction {
   public void setPurchaseTracker(int newPurchaseTracker) {
     purchaseTracker = newPurchaseTracker;
   }
-
+  public String getPurchaser() {
+    return purchaser;
+  }
+  public void setPurchaser(String newCustomer) {
+    purchaser = newCustomer;
+  }
 
   public void buyStuff() {
     System.out.println();

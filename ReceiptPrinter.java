@@ -1,6 +1,6 @@
 //ReceiptPrinter.java
 
-/* This is a java file 'stub' or piece of a file designed to get you started on 
+/* This is a java file 'stub' or piece of a file designed to get you started on
 * learning to code in java, while at the same time, exploring a little more about
 * collaboration, version control and multiple file scenarios.
 *
@@ -10,7 +10,7 @@
 * The receipt printer file could take arguments or parametrs from another class
 * This file will be purely for output
 ****************************************
-* 40 characters is a standard width    * 
+* 40 characters is a standard width    *
 * for typical receipt paper, your task *
 * is to make output from the screen    *
 * look like it is printing to a small  *
@@ -20,33 +20,36 @@
 * Have fun with the assignment!!       *
 ****************************************
 */
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ReceiptPrinter {
-  
-  public static void printReceipt() {
+  public static void printReceipt(Transaction tranc) {
+    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    Date date = new Date();
     System.out.println(" ---------------------------------------");
     //System.out.printf("|%s                                |\n", "Name: ");
     //System.out.printf("|%s                                |\n", "Date: ");
-    System.out.printf("|%s\t\t\t\t\t\t\t\t\t|\n", "Name: ");
-    System.out.printf("|%s\t\t\t\t\t\t\t\t\t|\n", "Date: ");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t\t\t\t\t\t|\n");
+    System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
+    System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|\t\t\t\t\t|\n");
     System.out.println(" ---------------------------------------");
   }
 
   public static void main(String[] args) {
-    
+
   }
 }

@@ -7,6 +7,8 @@ public class Main {
   public static InventoryItem orange = new InventoryItem("Orange(s)", 1.00);
   public static InventoryItem[] inventory = {burger, fries, orange};
 
+  public static float taxRate = 0;
+
   public static void main(String[] args) {
     regOne.topOTheMornin();
     regOne.desireToPurchase();
@@ -24,7 +26,6 @@ public class Main {
       t1.calculatePrice();
       System.out.println("Your subtotal: $" + t1.getTotalPrice() + "0\n");
     }
-    //regOne.desireToPurchase();
-    //ReceiptPrinter.printReceipt();
+    ReceiptPrinter.printReceipt(t1);
   }
 }

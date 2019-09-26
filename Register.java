@@ -40,14 +40,17 @@ public class Register {
   public static void topOTheMornin() {
     SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     Date date = new Date();
+    System.out.println();
     System.out.print("\nArrrr, today be ");
     System.out.println(formatter.format(date));
-    System.out.println("Welcome!");
+    Scanner scan = new Scanner(System.in);
+    System.out.print("Welcome!\n\nEmployee, what be the tax rate?\n> ");
+    Main.taxRate = scan.nextFloat();
   } //close topOTheMornin()
 
   public static void desireToPurchase() {
     boolean purchaseDecision = false;
-    System.out.println("Do you wish to make a purchase?");
+    System.out.println("Do you wish to make a transaction?");
     System.out.print("> ");
     Scanner scan = new Scanner(System.in);
     do {
