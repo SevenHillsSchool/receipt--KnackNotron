@@ -54,7 +54,7 @@ public class Register {
       if (scanRes.equals("y") || scanRes.equals("Y")) {
         boolean purchaseBool = true;
         System.out.println("You wish to purchase!");
-        t1.buyStuff();
+        Main.t1.buyStuff();
         purchaseDecision = true;
       } else if (scanRes.equals("n") || scanRes.equals("N")) {
         boolean purchaseBool = false;

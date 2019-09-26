@@ -2,19 +2,18 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Transaction {
-  public static InventoryItem burger = new InventoryItem("Burger", 12, 6.00);
-  public static InventoryItem fries = new InventoryItem("French Fries", 15, 1.50);
-  public static InventoryItem orange = new InventoryItem("Orange", 6, 1.00);
-  public static InventoryItem[] inventory = {burger, fries, orange};
-
+  InventoryItem[] purchasedItems;
+  int[] itemQuantity;
+  double totalPrice;
+  String purchaser;
+  int purchaseTracker;
 
   // constructor:
-  public Transaction() {
-    InventoryItem[] purchasedItems = new InventoryItem[3];
-    int[] itemQuantity = new int[3];
-    double totalPrice;
-    String purchaser;
-    int purchaseTracker = 0;
+  public Transaction(String customerName) {
+    purchasedItems = new InventoryItem[3];
+    itemQuantity = new int[3];
+    purchaser = customerName;
+    purchaseTracker = 0;
   } //close constructor
 
   // method to do a certain time delay
@@ -53,68 +52,73 @@ public class Transaction {
   }
 
 
-  public static void buyStuff() {
+  public void buyStuff() {
     System.out.println();
     Scanner scan = new Scanner(System.in);
     boolean purchasing = true;
     do {
-      t1.setPurchaseTracker(t1.getPurchaseTracker()+1);
+      purchaseTracker+=1;
       System.out.println("\nWhat do you wish to buy? We have:");
-      for (InventoryItem item : inventory) {
+      for (InventoryItem item : Main.inventory) {
         System.out.println(item.getName());
       }
       System.out.println();
       String scanRes = scan.next();
-      if (scanRes.equals("B") || scanRes.equals("b")) {
-        purchasedItems[purchaseTracker-1] = burger;
+      if (scanRes.toLowerCase().equals("burger".substring(0,scanRes.length()))) {
+        purchasedItems[purchaseTracker-1] = Main.burger;
         System.out.println("How many would you like to buy? We have "
-          + burger.getStock() + " available.");
+          + Main.burger.getStock() + " available.");
         int purchaseQuantity = scan.nextInt();
-        t1.setItemQuantity(purchaseQuantity);
+        itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
         purchasing = keepShopping();
-      } else if (scanRes.equals("F")|| scanRes.equals("f")) {
-        purchasedItems[purchaseTracker-1] = fries;
+      } else if (scanRes.toLowerCase().equals("french fries".substring(0,scanRes.length()))) {
+        purchasedItems[purchaseTracker-1] = Main.fries;
         System.out.println("How many would you like to buy? We have "
-          + fries.getStock() + " available.");
+          + Main.fries.getStock() + " available.");
         int purchaseQuantity = scan.nextInt();
-        t1.setItemQuantity(purchaseQuantity);
+        itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
         purchasing = keepShopping();
-      } else if (scanRes.equals("O") || scanRes.equals("o")) {
-        purchasedItems[purchaseTracker-1] = orange;
+      } else if (scanRes.toLowerCase().equals("orange".substring(0,scanRes.length()))) {
+        purchasedItems[purchaseTracker-1] = Main.orange;
         System.out.println("How many would you like to buy? We have "
-          + orange.getStock() + " available.");
+          + Main.orange.getStock() + " available.");
         int purchaseQuantity = scan.nextInt();
-        t1.setItemQuantity(purchaseQuantity);
+        itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
         purchasing = keepShopping();
       } else {
         System.out.println("That's not on our menu\n");
+        purchaseTracker-=1;
         purchasing=true;
       }
-    } while (purchasing == true);
+    } while (purchasing == true && purchaseTracker<3);
   }
 
 
-  public static boolean keepShopping() {
-    System.out.println("\nWould you like to keep shopping?");
-    Scanner scan = new Scanner(System.in);
-    String shopRes = scan.next();
-    if (shopRes.equals("y")||shopRes.equals("Y")) {
-      return true;
-    } else if (shopRes.equals("n")||shopRes.equals("N")) {
-      return false;
+  public boolean keepShopping() {
+    if (purchaseTracker<3) {
+      System.out.println("\nWould you like to keep shopping?");
+      Scanner scan = new Scanner(System.in);
+      String shopRes = scan.next();
+      if (shopRes.equals("y")||shopRes.equals("Y")) {
+        return true;
+      } else if (shopRes.equals("n")||shopRes.equals("N")) {
+        return false;
+      } else {
+        System.out.println("I didn't understand that answer, so I will assume no");
+        return false;
+      }
     } else {
-      System.out.println("I didn't understand that answer, so I will assume no");
       return false;
     }
   }
 
-  public static void calculatePrice(InventoryItem[] purchaseItems) {
-    // for (InventoryItem item : purchasedItems) {
-    //   System.out.println(item.getName());
-    // }
+  public static void calculatePrice() {
+    for (int i=0; i<Main.t1.purchasedItems.length; i++) {
+      Main.t1.totalPrice+= Main.t1.purchasedItems[i].getPrice() * Main.t1.itemQuantity[i];
+    }
   } //close calculatePrice()
 
 /* Unicode character to clear the screen for Unix
