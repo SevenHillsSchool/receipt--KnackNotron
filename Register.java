@@ -48,17 +48,16 @@ public class Register {
   public static void desireToPurchase() {
     boolean purchaseDecision = false;
     System.out.println("Do you wish to make a purchase?");
+    System.out.print("> ");
     Scanner scan = new Scanner(System.in);
     do {
       String scanRes = scan.next();
-      if (scanRes.equals("y") || scanRes.equals("Y")) {
+      if (scanRes.toLowerCase().equals("yes".substring(0,scanRes.length()))) {
         boolean purchaseBool = true;
-        System.out.println("You wish to purchase!");
         Main.t1.buyStuff();
         purchaseDecision = true;
-      } else if (scanRes.equals("n") || scanRes.equals("N")) {
+      } else if (scanRes.toLowerCase().equals("no".substring(0,scanRes.length()))) {
         boolean purchaseBool = false;
-        System.out.println("No wish to purchase");
         purchaseDecision = true;
       } else {
         System.out.println("Dude it's a [y]es or [n]o question");

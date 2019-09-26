@@ -11,10 +11,18 @@ public class Main {
     regOne.topOTheMornin();
     regOne.desireToPurchase();
     System.out.println();
-    System.out.println("Your cart has: ");
-    for (int i=0; i<t1.purchasedItems.length; i++) {
-      System.out.print(t1.itemQuantity[i] + " ");
-      System.out.println(t1.purchasedItems[i].getName());
+    if (t1.purchasedItems[0] == null) {
+      System.out.println("We\'re sorry to see you didn\'t purchase anything."+
+        " We hope you come back soon!\n");
+    } else if ((t1.purchasedItems[0].getName()==burger.getName() || t1.purchasedItems[0].getName()==fries.getName() || t1.purchasedItems[0].getName()==orange.getName())) {
+      System.out.println("Your cart has: ");
+      for (int i=0; i<t1.purchasedItems.length; i++) {
+        System.out.print(t1.itemQuantity[i] + " ");
+        System.out.println(t1.purchasedItems[i].getName());
+      }
+      System.out.println();
+      t1.calculatePrice();
+      System.out.println("Your subtotal: $" + t1.getTotalPrice() + "\n");
     }
     //regOne.desireToPurchase();
     //ReceiptPrinter.printReceipt();

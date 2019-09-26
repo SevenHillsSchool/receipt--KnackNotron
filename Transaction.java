@@ -63,11 +63,13 @@ public class Transaction {
         System.out.println(item.getName());
       }
       System.out.println();
+      System.out.print("> ");
       String scanRes = scan.next();
       if (scanRes.toLowerCase().equals("burger".substring(0,scanRes.length()))) {
         purchasedItems[purchaseTracker-1] = Main.burger;
         System.out.println("How many would you like to buy? We have "
           + Main.burger.getStock() + " available.");
+        System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
@@ -76,6 +78,7 @@ public class Transaction {
         purchasedItems[purchaseTracker-1] = Main.fries;
         System.out.println("How many would you like to buy? We have "
           + Main.fries.getStock() + " available.");
+        System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
@@ -84,6 +87,7 @@ public class Transaction {
         purchasedItems[purchaseTracker-1] = Main.orange;
         System.out.println("How many would you like to buy? We have "
           + Main.orange.getStock() + " available.");
+        System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;
 
@@ -102,9 +106,9 @@ public class Transaction {
       System.out.println("\nWould you like to keep shopping?");
       Scanner scan = new Scanner(System.in);
       String shopRes = scan.next();
-      if (shopRes.equals("y")||shopRes.equals("Y")) {
+      if (shopRes.toLowerCase().equals("yes".substring(0,shopRes.length()))) {
         return true;
-      } else if (shopRes.equals("n")||shopRes.equals("N")) {
+      } else if (shopRes.toLowerCase().equals("no".substring(0,shopRes.length()))) {
         return false;
       } else {
         System.out.println("I didn't understand that answer, so I will assume no");
@@ -115,9 +119,9 @@ public class Transaction {
     }
   }
 
-  public static void calculatePrice() {
-    for (int i=0; i<Main.t1.purchasedItems.length; i++) {
-      Main.t1.totalPrice+= Main.t1.purchasedItems[i].getPrice() * Main.t1.itemQuantity[i];
+  public void calculatePrice() {
+    for (int i=0; i<purchasedItems.length; i++) {
+      totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
     }
   } //close calculatePrice()
 
