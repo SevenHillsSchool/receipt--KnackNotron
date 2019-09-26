@@ -34,17 +34,17 @@ public class ReceiptPrinter {
     System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|%s\t\t\t|\n", "Items Purchased:");
+    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[0] , tranc.purchasedItems[0].getName());
+    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[1], tranc.purchasedItems[1].getName());
+    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[2], tranc.purchasedItems[2].getName());
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
+    System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
+    System.out.printf("|%s\t\t\t|\n", "Tax: $" + (tranc.getTotalPrice()*Main.taxRate));
+    System.out.printf("|%s\t\t\t|\n", "Total: $", (tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.println(" ---------------------------------------");
   }
