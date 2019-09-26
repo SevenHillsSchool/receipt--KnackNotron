@@ -67,8 +67,7 @@ public class Transaction {
       String scanRes = scan.next();
       if (scanRes.toLowerCase().equals("burger".substring(0,scanRes.length()))) {
         purchasedItems[purchaseTracker-1] = Main.burger;
-        System.out.println("How many would you like to buy? We have "
-          + Main.burger.getStock() + " available.");
+        System.out.println("How many would you like to buy?");
         System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;
@@ -76,8 +75,7 @@ public class Transaction {
         purchasing = keepShopping();
       } else if (scanRes.toLowerCase().equals("french fries".substring(0,scanRes.length()))) {
         purchasedItems[purchaseTracker-1] = Main.fries;
-        System.out.println("How many would you like to buy? We have "
-          + Main.fries.getStock() + " available.");
+        System.out.println("How many would you like to buy?");
         System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;
@@ -85,8 +83,7 @@ public class Transaction {
         purchasing = keepShopping();
       } else if (scanRes.toLowerCase().equals("orange".substring(0,scanRes.length()))) {
         purchasedItems[purchaseTracker-1] = Main.orange;
-        System.out.println("How many would you like to buy? We have "
-          + Main.orange.getStock() + " available.");
+        System.out.println("How many would you like to buy?");
         System.out.print("> ");
         int purchaseQuantity = scan.nextInt();
         itemQuantity[purchaseTracker-1] = purchaseQuantity;

@@ -2,9 +2,9 @@ public class Main {
   public static Register regOne = new Register();
   public static Transaction t1 = new Transaction("Nik");
 
-  public static InventoryItem burger = new InventoryItem("Burger(s)", 12, 6.00);
-  public static InventoryItem fries = new InventoryItem("French Fries", 15, 1.50);
-  public static InventoryItem orange = new InventoryItem("Orange(s)", 6, 1.00);
+  public static InventoryItem burger = new InventoryItem("Burger(s)", 6.00);
+  public static InventoryItem fries = new InventoryItem("French Fries", 1.50);
+  public static InventoryItem orange = new InventoryItem("Orange(s)", 1.00);
   public static InventoryItem[] inventory = {burger, fries, orange};
 
   public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class Main {
       }
       System.out.println();
       t1.calculatePrice();
-      System.out.println("Your subtotal: $" + t1.getTotalPrice() + "\n");
+      System.out.println("Your subtotal: $" + t1.getTotalPrice() + "0\n");
     }
     //regOne.desireToPurchase();
     //ReceiptPrinter.printReceipt();

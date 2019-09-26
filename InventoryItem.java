@@ -1,11 +1,9 @@
 public class InventoryItem {
   String name;
-  int stock;
   double price;
 
-  public InventoryItem(String nameName, int stockStock, double pricePrice) {
+  public InventoryItem(String nameName, double pricePrice) {
     name = nameName;
-    stock = stockStock;
     price = pricePrice;
   }
 
@@ -14,13 +12,6 @@ public class InventoryItem {
   }
   public void setName(String newName) {
     name = newName;
-  }
-
-  public int getStock() {
-    return stock;
-  }
-  public void setStock(int newStock) {
-    stock = newStock;
   }
 
   public double getPrice() {
