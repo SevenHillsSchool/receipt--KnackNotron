@@ -122,23 +122,32 @@ public class Transaction {
   }
 
   public void calculatePrice() {
-    int calcDistance = 0;
-    if (purchasedItems[2].getName().equals("Burger(s)") || purchasedItems[2].getName().equals("French Fries") || purchasedItems[2].getName().equals("Orange(s)")) {
-      for (int i=0; i<3; i++) {
-        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+    int calcDistance = -1;
+    for (InventoryItem item : purchasedItems) {
+      calcDistance++;
+      if (item==null) {
+        System.out.println("Nothin to calculate");
+      } else if (item.getName().equals("Burger(s)") || item.getName().equals("French Fries") || item.getName().equals("Orange(s)")){
+        totalPrice+=purchasedItems[calcDistance].getPrice() * itemQuantity[calcDistance];
+      } else {
+        System.out.println("Error calculating price.");
       }
-    } else if (purchasedItems[1].getName().equals("Burger(s)") || purchasedItems[1].getName().equals("French Fries") || purchasedItems[1].getName().equals("Orange(s)")) {
-      for (int i=0; i<3; i++) {
-        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
-      }
-    } else if (purchasedItems[0].getName().equals("Burger(s)") || purchasedItems[0].getName().equals("French Fries") || purchasedItems[0].getName().equals("Orange(s)")) {
-      for (int i=0; i<3; i++) {
-        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
-      }
-    } else {
-      System.out.println("Error calculating price.");
     }
-  } //close calculatePrice()
+  }
+  //   if (purchasedItems[2].getName().equals("Burger(s)") || purchasedItems[2].getName().equals("French Fries") || purchasedItems[2].getName().equals("Orange(s)")) {
+  //     for (int i=0; i<3; i++) {
+  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+  //     }
+  //   } else if (purchasedItems[1].getName().equals("Burger(s)") || purchasedItems[1].getName().equals("French Fries") || purchasedItems[1].getName().equals("Orange(s)")) {
+  //     for (int i=0; i<3; i++) {
+  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+  //     }
+  //   } else if (purchasedItems[0].getName().equals("Burger(s)") || purchasedItems[0].getName().equals("French Fries") || purchasedItems[0].getName().equals("Orange(s)")) {
+  //     for (int i=0; i<3; i++) {
+  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+  //     }
+  //   }
+  // } //close calculatePrice()
 
 /* Unicode character to clear the screen for Unix
   System.out.println("\033\143"); */

@@ -29,28 +29,71 @@ public class ReceiptPrinter {
   public static void printReceipt(Transaction tranc) {
     SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     DecimalFormat df = new DecimalFormat("#.##");
-    //df.setRoundingMode(RoundingMode.CEILING);
     Date date = new Date();
-    System.out.println(" ---------------------------------------");
-    //System.out.printf("|%s                                |\n", "Name: ");
-    //System.out.printf("|%s                                |\n", "Date: ");
-    System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
-    System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|%s\t\t\t|\n", "Items Purchased:");
-    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[0] , tranc.purchasedItems[0].getName());
-    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[1], tranc.purchasedItems[1].getName());
-    System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[2], tranc.purchasedItems[2].getName());
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
-    System.out.printf("|%s\t\t\t\t|\n", "Tax: $" + df.format(tranc.getTotalPrice()*Main.taxRate));
-    System.out.printf("|%s\t\t\t\t|\n", "Total: $" + df.format(tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
-    System.out.printf("|\t\t\t\t\t|\n");
-    System.out.println(" ---------------------------------------");
+    if (tranc.purchasedItems[0]==null) {
+      System.out.println();
+    } else if (tranc.purchasedItems[1]==null) {
+      System.out.println(" ---------------------------------------");
+      //System.out.printf("|%s                                |\n", "Name: ");
+      //System.out.printf("|%s                                |\n", "Date: ");
+      System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
+      System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Items Purchased:");
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[0] , tranc.purchasedItems[0].getName());
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
+      System.out.printf("|%s\t\t\t\t|\n", "Tax: $" + df.format(tranc.getTotalPrice()*Main.taxRate));
+      System.out.printf("|%s\t\t\t\t|\n", "Total: $" + df.format(tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.println(" ---------------------------------------");
+    } else if (tranc.purchasedItems[2]==null) {
+      System.out.println(" ---------------------------------------");
+      //System.out.printf("|%s                                |\n", "Name: ");
+      //System.out.printf("|%s                                |\n", "Date: ");
+      System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
+      System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Items Purchased:");
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[0] , tranc.purchasedItems[0].getName());
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[1], tranc.purchasedItems[1].getName());
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
+      System.out.printf("|%s\t\t\t\t|\n", "Tax: $" + df.format(tranc.getTotalPrice()*Main.taxRate));
+      System.out.printf("|%s\t\t\t\t|\n", "Total: $" + df.format(tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.println(" ---------------------------------------");
+    } else {
+      System.out.println(" ---------------------------------------");
+      //System.out.printf("|%s                                |\n", "Name: ");
+      //System.out.printf("|%s                                |\n", "Date: ");
+      System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
+      System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Items Purchased:");
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[0] , tranc.purchasedItems[0].getName());
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[1], tranc.purchasedItems[1].getName());
+      System.out.printf("|%d %s\t\t\t\t|\n", tranc.itemQuantity[2], tranc.purchasedItems[2].getName());
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
+      System.out.printf("|%s\t\t\t\t|\n", "Tax: $" + df.format(tranc.getTotalPrice()*Main.taxRate));
+      System.out.printf("|%s\t\t\t\t|\n", "Total: $" + df.format(tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
+      System.out.printf("|\t\t\t\t\t|\n");
+      System.out.println(" ---------------------------------------");
+    }
+
   }
 
   public static void main(String[] args) {
