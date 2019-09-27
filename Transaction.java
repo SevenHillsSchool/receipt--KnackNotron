@@ -122,8 +122,21 @@ public class Transaction {
   }
 
   public void calculatePrice() {
-    for (int i=0; i<purchasedItems.length; i++) {
-      totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+    int calcDistance = 0;
+    if (purchasedItems[2].getName().equals("Burger(s)") || purchasedItems[2].getName().equals("French Fries") || purchasedItems[2].getName().equals("Orange(s)")) {
+      for (int i=0; i<3; i++) {
+        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+      }
+    } else if (purchasedItems[1].getName().equals("Burger(s)") || purchasedItems[1].getName().equals("French Fries") || purchasedItems[1].getName().equals("Orange(s)")) {
+      for (int i=0; i<3; i++) {
+        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+      }
+    } else if (purchasedItems[0].getName().equals("Burger(s)") || purchasedItems[0].getName().equals("French Fries") || purchasedItems[0].getName().equals("Orange(s)")) {
+      for (int i=0; i<3; i++) {
+        totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
+      }
+    } else {
+      System.out.println("Error calculating price.");
     }
   } //close calculatePrice()
 

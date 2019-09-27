@@ -22,10 +22,14 @@
 */
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class ReceiptPrinter {
   public static void printReceipt(Transaction tranc) {
     SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    DecimalFormat df = new DecimalFormat("#.##");
+    //df.setRoundingMode(RoundingMode.CEILING);
     Date date = new Date();
     System.out.println(" ---------------------------------------");
     //System.out.printf("|%s                                |\n", "Name: ");
@@ -43,8 +47,8 @@ public class ReceiptPrinter {
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.printf("|%s\t\t\t|\n", "Subtotal: $" + tranc.getTotalPrice() + "0");
-    System.out.printf("|%s\t\t\t|\n", "Tax: $" + (tranc.getTotalPrice()*Main.taxRate));
-    System.out.printf("|%s\t\t\t|\n", "Total: $", (tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
+    System.out.printf("|%s\t\t\t\t|\n", "Tax: $" + df.format(tranc.getTotalPrice()*Main.taxRate));
+    System.out.printf("|%s\t\t\t\t|\n", "Total: $" + df.format(tranc.getTotalPrice()+(tranc.getTotalPrice()*Main.taxRate)));
     System.out.printf("|\t\t\t\t\t|\n");
     System.out.println(" ---------------------------------------");
   }
