@@ -33,9 +33,9 @@ public class ReceiptPrinter {
     if (tranc.purchasedItems[0]==null) {
       System.out.println();
     } else if (tranc.purchasedItems[1]==null) {
+      System.out.println("\033\143");
+      System.out.println("\033\143");
       System.out.println(" ---------------------------------------");
-      //System.out.printf("|%s                                |\n", "Name: ");
-      //System.out.printf("|%s                                |\n", "Date: ");
       System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
       System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
       System.out.printf("|\t\t\t\t\t|\n");
@@ -52,9 +52,9 @@ public class ReceiptPrinter {
       System.out.printf("|\t\t\t\t\t|\n");
       System.out.println(" ---------------------------------------");
     } else if (tranc.purchasedItems[2]==null) {
+      System.out.println("\033\143");
+      System.out.println("\033\143");
       System.out.println(" ---------------------------------------");
-      //System.out.printf("|%s                                |\n", "Name: ");
-      //System.out.printf("|%s                                |\n", "Date: ");
       System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
       System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
       System.out.printf("|\t\t\t\t\t|\n");
@@ -72,9 +72,9 @@ public class ReceiptPrinter {
       System.out.printf("|\t\t\t\t\t|\n");
       System.out.println(" ---------------------------------------");
     } else {
+      System.out.println("\033\143");
+      System.out.println("\033\143");
       System.out.println(" ---------------------------------------");
-      //System.out.printf("|%s                                |\n", "Name: ");
-      //System.out.printf("|%s                                |\n", "Date: ");
       System.out.printf("|%s\t\t\t\t|\n", "Name: " + tranc.getPurchaser());
       System.out.printf("|%s\t\t\t|\n", "Date: " + formatter.format(date));
       System.out.printf("|\t\t\t\t\t|\n");

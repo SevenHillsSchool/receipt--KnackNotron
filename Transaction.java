@@ -16,14 +16,6 @@ public class Transaction {
     purchaseTracker = 0;
   } //close constructor
 
-  // method to do a certain time delay
-  public void timeDelay(int duration) {
-    try {
-      Thread.sleep(duration);
-    } catch (InterruptedException ie) {
-      Thread.currentThread().interrupt();
-    }
-  } //close timeDelay()
 
   // transaction getters and setters:
   public InventoryItem[] getPurchasedItems() {
@@ -134,22 +126,5 @@ public class Transaction {
       }
     }
   }
-  //   if (purchasedItems[2].getName().equals("Burger(s)") || purchasedItems[2].getName().equals("French Fries") || purchasedItems[2].getName().equals("Orange(s)")) {
-  //     for (int i=0; i<3; i++) {
-  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
-  //     }
-  //   } else if (purchasedItems[1].getName().equals("Burger(s)") || purchasedItems[1].getName().equals("French Fries") || purchasedItems[1].getName().equals("Orange(s)")) {
-  //     for (int i=0; i<3; i++) {
-  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
-  //     }
-  //   } else if (purchasedItems[0].getName().equals("Burger(s)") || purchasedItems[0].getName().equals("French Fries") || purchasedItems[0].getName().equals("Orange(s)")) {
-  //     for (int i=0; i<3; i++) {
-  //       totalPrice+= purchasedItems[i].getPrice() * itemQuantity[i];
-  //     }
-  //   }
-  // } //close calculatePrice()
-
-/* Unicode character to clear the screen for Unix
-  System.out.println("\033\143"); */
 
 } //close class
